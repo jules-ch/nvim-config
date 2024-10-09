@@ -102,6 +102,8 @@ return {
           --  Most Language Servers support renaming across files, etc.
           map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
 
+          map('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
@@ -152,24 +154,20 @@ return {
           end
 
           -- Code lens
-          if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_codeLens) then
-            local code_lens_augroup = vim.api.nvim_create_augroup('kickstart-lsp-code-lens', { clear = false })
+          -- if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_codeLens) then
+          --   local code_lens_augroup = vim.api.nvim_create_augroup('kickstart-lsp-code-lens', { clear = false })
+          --
+          --   vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'InsertLeave' }, {
+          --     buffer = event.buf,
+          --     callback = function()
+          --       vim.lsp.codelens.refresh { bufnr = event.buf }
+          --     end,
+          --     group = code_lens_augroup,
+          --   })
+          -- end
 
+          if client and client.server_capabilities.codeLensProvider then
             vim.lsp.codelens.refresh { bufnr = event.buf }
-            vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'InsertLeave' }, {
-              buffer = event.buf,
-              callback = function()
-                vim.lsp.codelens.refresh { bufnr = event.buf }
-              end,
-              group = code_lens_augroup,
-            })
-
-            -- vim.api.nvim_create_autocmd('LspDetach', {
-            --   group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
-            --   callback = function(event2)
-            --     vim.api.nvim_clear_autocmds { group = code_lens_augroup, buffer = event2.buf }
-            --   end,
-            -- })
           end
         end,
       })

@@ -17,7 +17,7 @@ return {
       {
         '<leader>a',
         function()
-          require('harpoon'):list():add()
+          harpoon:list():add()
         end,
         desc = 'Harpoon add File',
       },

@@ -43,6 +43,9 @@ map('i', '<A-k>', '<esc><cmd>m .-2<cr>==gi', { desc = 'Move Up' })
 map('v', '<A-j>', ":m '>+1<cr>gv=gv", { desc = 'Move Down' })
 map('v', '<A-k>', ":m '<-2<cr>gv=gv", { desc = 'Move Up' })
 
+-- Select All
+map('n', '<C-a>', 'gg<S-v>G')
+
 -- Git
 map('n', '<leader>gg', function()
   LazyVim.lazygit { cwd = LazyVim.root.git() }
