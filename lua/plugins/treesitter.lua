@@ -2,6 +2,9 @@ vim.filetype.add {
   filename = {
     ['uv.lock'] = 'toml',
   },
+  pattern = {
+    ['%.env%.[%w_.-]+'] = 'sh',
+  },
 }
 
 return {
@@ -29,6 +32,8 @@ return {
         'go',
         'typescript',
         'css',
+        'gitcommit',
+        'sql',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,

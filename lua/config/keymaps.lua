@@ -1,10 +1,7 @@
 local map = vim.keymap.set
 
-local LazyVim = require 'lazyvim.util'
-
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
-
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -45,26 +42,6 @@ map('v', '<A-k>', ":m '<-2<cr>gv=gv", { desc = 'Move Up' })
 
 -- Select All
 map('n', '<C-a>', 'gg<S-v>G')
-
--- Git
-map('n', '<leader>gg', function()
-  LazyVim.lazygit { cwd = LazyVim.root.git() }
-end, { desc = 'Lazygit (Root Dir)' })
-
-map('n', '<leader>gB', LazyVim.lazygit.browse, { desc = 'Git Browse' })
-map('n', '<leader>gf', function()
-  local git_path = vim.api.nvim_buf_get_name(0)
-  LazyVim.lazygit { args = { '-f', vim.trim(git_path) } }
-end, { desc = 'Lazygit Current File History' })
-
-map('n', '<leader>gl', function()
-  LazyVim.lazygit { args = { 'log' }, cwd = LazyVim.root.git() }
-end, { desc = 'Lazygit Log' })
-
--- Terminal
-local lazyterm = function()
-  LazyVim.terminal(nil, { cwd = LazyVim.root() })
-end
 
 map('n', '<leader>ft', function()
   vim.fn.system 'zellij action toggle-floating-panes'

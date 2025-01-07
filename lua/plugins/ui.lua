@@ -1,5 +1,37 @@
 return {
   {
+    'nvim-tree/nvim-web-devicons',
+    opts = {
+      override_by_filename = {
+        -- Custom file extension for .env.testing
+        ['.env.testing'] = {
+          icon = '', -- Same as .env icon (or define a custom one)
+          color = '#ebd517', -- Same color (or choose a new one)
+          name = 'Env',
+        },
+        ['.env.template'] = {
+          icon = '', -- Same as .env icon (or define a custom one)
+          color = '#ebd517', -- Same color (or choose a new one)
+          name = 'Env',
+        },
+        ['alembic.ini'] = {
+          ['icon'] = '󱉋',
+        },
+      },
+      override_by_extension = {
+        ['gpx'] = {
+          icon = '󰗀',
+          color = '#898dd9',
+          name = 'GPX',
+        },
+        ['proto'] = {
+          icon = '',
+          color = '#ffffff',
+        },
+      },
+    },
+  },
+  {
     'nvim-tree/nvim-tree.lua',
     version = '*',
     keys = {
@@ -14,6 +46,7 @@ return {
     },
     opts = {
       view = {
+        side = 'right',
         width = 30,
         preserve_window_proportions = true,
       },
@@ -42,45 +75,6 @@ return {
       },
     },
   },
-
-  -- {
-  --   'akinsho/bufferline.nvim',
-  --   event = 'VeryLazy',
-  --   keys = {
-  --     { '<Tab>', '<Cmd>BufferLineCycleNext<CR>', desc = 'Next tab' },
-  --     { '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', desc = 'Prev tab' },
-  --   },
-  --   opts = {
-  --     options = {
-  --       mode = 'buffers',
-  --       -- always_show_bufferline = true,
-  --       diagnostics = false,
-  --       show_buffer_close_icons = true,
-  --       show_close_icon = true,
-  --
-  --       offsets = {
-  --         {
-  --           filetype = 'NvimTree',
-  --           -- highlight = 'Directory',
-  --           text = 'File Explorer',
-  --           text_align = 'left',
-  --           separator = true,
-  --         },
-  --       },
-  --       config = function(_, opts)
-  --         require('bufferline').setup(opts)
-  --         -- Fix bufferline when restoring a session
-  --         vim.api.nvim_create_autocmd('BufAdd', {
-  --           callback = function()
-  --             vim.schedule(function()
-  --               pcall(nvim_bufferline)
-  --             end)
-  --           end,
-  --         })
-  --       end,
-  --     },
-  --   },
-  -- },
   {
     'kristijanhusak/vim-dadbod-ui',
     dependencies = {
@@ -98,12 +92,12 @@ return {
       vim.g.db_ui_use_nerd_fonts = 1
     end,
     keys = {
-      {
-
-        '<leader>d',
-        '<cmd>NvimTreeClose<cr><cmd>tabnew<cr><bar><bar><cmd>DBUI<cr>',
-        desc = 'DBUI',
-      },
+      -- {
+      --
+      --   '<leader>d',
+      --   '<cmd>NvimTreeClose<cr><cmd>tabnew<cr><bar><bar><cmd>DBUI<cr>',
+      --   desc = 'DBUI',
+      -- },
     },
   },
 }
