@@ -18,7 +18,7 @@ return {
     'nvim-neotest/nvim-nio',
 
     -- Installs the debug adapters for you
-    'williamboman/mason.nvim',
+    'mason-org/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
 
     -- Add your own debuggers here
@@ -84,7 +84,7 @@ return {
     --     detached = vim.fn.has 'win32' == 0,
     --   },
     -- }
-    local path = require('mason-registry').get_package('debugpy'):get_install_path()
+    local path = vim.fn.exepath 'debugpy'
     require('dap-python').setup(path .. '/venv/bin/python')
 
     -- local codelldb_path = require('mason-registry').get_package('codelldb'):get_install_path()

@@ -171,12 +171,12 @@ vim.wo.relativenumber = true
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
+--  See `:help vim.hl.on_yank()`
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank()
   end,
 })
 
@@ -205,24 +205,24 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup {
 
-  {
-    'LazyVim/LazyVim',
-    -- import = 'lazyvim.plugins',
-
-    opts = {
-      defaults = {
-        autocmds = false, -- lazyvim.config.autocmds
-        keymaps = false, -- lazyvim.config.keymaps
-        -- lazyvim.config.options can't be configured here since that's loaded before lazyvim setup
-        -- if you want to disable loading options, add `package.loaded["lazyvim.config.options"] = true` to the top of your init.lua
-        news = {
-          lazyvim = true,
-          neovim = true,
-        },
-      },
-      colorscheme = 'tokyonight-night',
-    },
-  },
+  -- {
+  --   'LazyVim/LazyVim',
+  --   -- import = 'lazyvim.plugins',
+  --
+  --   opts = {
+  --     defaults = {
+  --       autocmds = false, -- lazyvim.config.autocmds
+  --       keymaps = false, -- lazyvim.config.keymaps
+  --       -- lazyvim.config.options can't be configured here since that's loaded before lazyvim setup
+  --       -- if you want to disable loading options, add `package.loaded["lazyvim.config.options"] = true` to the top of your init.lua
+  --       news = {
+  --         lazyvim = true,
+  --         neovim = true,
+  --       },
+  --     },
+  --     colorscheme = 'tokyonight-night',
+  --   },
+  -- },
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
@@ -281,6 +281,8 @@ require('lazy').setup {
         desc = 'Lazygit',
       },
     },
+
+    ---@type snacks.Config
     opts = {},
   },
   {
