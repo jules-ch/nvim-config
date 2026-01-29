@@ -198,6 +198,7 @@ return {
             features = { 'all' },
           },
         },
+        pyrefly = {},
         cssls = {},
         html = {
           html = {
@@ -242,23 +243,23 @@ return {
             },
           },
         },
-        basedpyright = {
-          settings = {
-            basedpyright = {
-              disableOrganizeImports = true, -- Using Ruff
-            },
-            python = {
-              analysis = {
-                -- ignore = { '*' },
-                autoImportCompletions = true,
-                autoSearchPaths = true,
-                diagnosticMode = 'openFilesOnly', -- openFilesOnly, workspace
-                typeCheckingMode = 'standard', -- off, basic, standard, strict
-                useLibraryCodeForTypes = true,
-              },
-            },
-          },
-        },
+        -- basedpyright = {
+        --   settings = {
+        --     basedpyright = {
+        --       disableOrganizeImports = true, -- Using Ruff
+        --     },
+        --     python = {
+        --       analysis = {
+        --         -- ignore = { '*' },
+        --         autoImportCompletions = true,
+        --         autoSearchPaths = true,
+        --         diagnosticMode = 'openFilesOnly', -- openFilesOnly, workspace
+        --         typeCheckingMode = 'standard', -- off, basic, standard, strict
+        --         useLibraryCodeForTypes = true,
+        --       },
+        --     },
+        --   },
+        -- },
         ruff = {
           on_attach = function(client, bufnr)
             if client.name == 'ruff' then

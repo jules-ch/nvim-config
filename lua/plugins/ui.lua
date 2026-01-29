@@ -17,6 +17,11 @@ return {
         ['alembic.ini'] = {
           ['icon'] = '󱉋',
         },
+        ['nginx.conf'] = {
+          icon = '',
+          color = '#009900',
+          name = 'nginx',
+        },
       },
       override_by_extension = {
         ['gpx'] = {
@@ -47,7 +52,7 @@ return {
     opts = {
       view = {
         side = 'right',
-        width = 30,
+        width = 40,
         preserve_window_proportions = true,
       },
       disable_netrw = true,

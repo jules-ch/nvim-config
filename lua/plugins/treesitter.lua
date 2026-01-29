@@ -61,4 +61,9 @@ return {
 
     ft = { 'mustache', 'handlebars' },
   },
+  {
+    'davidmh/mdx.nvim',
+    config = true,
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  },
 }

@@ -201,28 +201,12 @@ vim.opt.rtp:prepend(lazypath)
 --
 --  To update plugins you can run
 --    :Lazy update
---
+
+require 'config.keymaps'
+
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup {
 
-  -- {
-  --   'LazyVim/LazyVim',
-  --   -- import = 'lazyvim.plugins',
-  --
-  --   opts = {
-  --     defaults = {
-  --       autocmds = false, -- lazyvim.config.autocmds
-  --       keymaps = false, -- lazyvim.config.keymaps
-  --       -- lazyvim.config.options can't be configured here since that's loaded before lazyvim setup
-  --       -- if you want to disable loading options, add `package.loaded["lazyvim.config.options"] = true` to the top of your init.lua
-  --       news = {
-  --         lazyvim = true,
-  --         neovim = true,
-  --       },
-  --     },
-  --     colorscheme = 'tokyonight-night',
-  --   },
-  -- },
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
@@ -276,7 +260,7 @@ require('lazy').setup {
       {
         '<leader>gg',
         function()
-          Snacks.lazygit()
+          Snacks.lazygit.open()
         end,
         desc = 'Lazygit',
       },

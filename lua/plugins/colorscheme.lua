@@ -9,9 +9,9 @@ return {
         comments = { italic = false },
         keywords = { italic = false },
       },
-      on_colors = function(colors)
-        colors.bg = '#16161e'
-      end,
+      -- on_colors = function(colors)
+      -- colors.bg = '#16161e'
+      -- end,
     },
     config = function(_, opts)
       -- vim.g.tokyonight_italic_keywords = false
